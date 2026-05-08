@@ -9,6 +9,18 @@ workflows:
     scripts:
       - name: Instalar dependencias
         script: flutter pub get
+      - name: Criar icones padrao
+        script: |
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          cp $FLUTTER_ROOT/packages/flutter_tools/templates/app_shared/android.tmpl/app/src/main/res/mipmap-mdpi/ic_launcher.png android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          cp $FLUTTER_ROOT/packages/flutter_tools/templates/app_shared/android.tmpl/app/src/main/res/mipmap-hdpi/ic_launcher.png android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          cp $FLUTTER_ROOT/packages/flutter_tools/templates/app_shared/android.tmpl/app/src/main/res/mipmap-xhdpi/ic_launcher.png android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          cp $FLUTTER_ROOT/packages/flutter_tools/templates/app_shared/android.tmpl/app/src/main/res/mipmap-xxhdpi/ic_launcher.png android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          cp $FLUTTER_ROOT/packages/flutter_tools/templates/app_shared/android.tmpl/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
       - name: Gerar APK release
         script: flutter build apk --release
     artifacts:
