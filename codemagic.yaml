@@ -2,6 +2,7 @@ workflows:
   android-release:
     name: Ponto Fácil - APK Android
     max_build_duration: 60
+    working_directory: ponto_facil
     environment:
       flutter: 3.19.6
       java: 17
